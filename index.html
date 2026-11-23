@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe a Idade (1 a 127) - Lógica Binária</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Adivinhe a Idade</h1>
+            <p class="subtitle">O truque matemático com 7 cartões binários (1 a 127)</p>
+        </header>
+
+        <!-- Tela Inicial -->
+        <section id="tela-inicio" class="card-panel active">
+            <h2>Como funciona?</h2>
+            <p>Pense em um número ou na sua idade entre <strong>1 e 127</strong>, mas não diga qual é!</p>
+            <p>Vou mostrar <strong>7 cartões</strong> diferentes. Em cada cartão, basta responder se o número que você pensou aparece nele ou não.</p>
+            <button id="btn-iniciar" class="btn btn-primary">Começar o Jogo</button>
+        </section>
+
+        <!-- Tela do Jogo (Cartões) -->
+        <section id="tela-jogo" class="card-panel">
+            <div class="progress-bar">
+                <span id="indicador-cartao">Cartão 1 de 7</span>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <p class="pergunta">O número que você pensou está neste cartão?</p>
+
+            <!-- Grade de 64 números gerada via JS -->
+            <div id="grade-numeros" class="numbers-grid"></div>
+
+            <div class="actions">
+                <button id="btn-nao" class="btn btn-danger">Não está</button>
+                <button id="btn-sim" class="btn btn-success">Sim, está!</button>
+            </div>
+        </section>
+
+        <!-- Tela de Resultado -->
+        <section id="tela-resultado" class="card-panel">
+            <h2>A idade pensada foi:</h2>
+            <div id="numero-revelado" class="revealed-number">0</div>
+
+            <div class="explicacao-box">
+                <h3>Como o computador descobriu?</h3>
+                <p>Cada cartão representa um <strong>bit</strong> (uma potência de 2). Somamos o primeiro número de cada cartão onde você respondeu <strong>"Sim"</strong>:</p>
+                
+                <div id="tabela-bits" class="bits-table"></div>
+                <p id="equacao-soma" class="equation"></p>
+            </div>
+
+            <button id="btn-reiniciar" class="btn btn-primary">Jogar Novamente</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

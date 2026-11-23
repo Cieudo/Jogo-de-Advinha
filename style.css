@@ -1,0 +1,278 @@
+/* Reset básico e variáveis */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #16a34a;
+    --success-hover: #15803d;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 28px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--bg);
+    padding-bottom: 16px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Controle das Telas */
+.card-panel {
+    display: none;
+}
+
+.card-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 14px;
+    color: var(--text-muted);
+}
+
+/* Barra de Progresso */
+.progress-bar {
+    margin-bottom: 16px;
+}
+
+#indicador-cartao {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: var(--bg);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 14.28%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.pergunta {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+/* Grade de Números (8 colunas x 8 linhas = 64 números) */
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+}
+
+.num-item {
+    background: var(--card-bg);
+    padding: 8px 2px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    border: 1px solid #e2e8f0;
+    user-select: none;
+}
+
+.num-item:first-child {
+    background: #dbeafe;
+    color: var(--primary);
+    border-color: #93c5fd;
+    font-weight: 800;
+}
+
+/* Botões */
+.actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    color: #fff;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--primary);
+    width: 100%;
+    max-width: 260px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-success {
+    background: var(--success);
+    flex: 1;
+}
+
+.btn-success:hover {
+    background: var(--success-hover);
+}
+
+.btn-danger {
+    background: var(--danger);
+    flex: 1;
+}
+
+.btn-danger:hover {
+    background: var(--danger-hover);
+}
+
+/* Tela de Resultado */
+.revealed-number {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    background: #eff6ff;
+    border: 2px dashed #93c5fd;
+    border-radius: 16px;
+    padding: 16px;
+    margin: 12px auto 24px;
+    max-width: 220px;
+}
+
+.explicacao-box {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.explicacao-box h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.bits-table {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin: 14px 0;
+    text-align: center;
+}
+
+.bit-cell {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 4px;
+}
+
+.bit-cell.ativo {
+    background: #dcfce7;
+    border-color: #4ade80;
+    color: #166534;
+}
+
+.bit-valor {
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: block;
+}
+
+.bit-digito {
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: block;
+    margin-top: 2px;
+}
+
+.equation {
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+    .numbers-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .bits-table {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
